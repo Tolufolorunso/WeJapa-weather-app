@@ -8,6 +8,7 @@ const hr = document.getElementById('hour');
 const min = document.getElementById('minute');
 const sec = document.getElementById('second');
 const date = document.getElementById('date');
+const apUi = document.getElementById('ap');
 const alert = document.getElementById('alert');
 
 let latitudeDefault, longitudeDefault;
@@ -140,12 +141,18 @@ const displayTime = () => {
 		month: 'long',
 		day: 'numeric'
 	});
+
+	let ap = 'AM';
+	if (hour > 11) ap = 'PM';
+	if (hour > 12) hour = hour - 12;
+	if (hour === 0) hour = 12;
 	seconds = seconds < 10 ? '0' + seconds : seconds;
 	minutes = minutes < 10 ? '0' + minutes : minutes;
 	date.textContent = todayDate;
 	hr.textContent = hour;
 	min.textContent = minutes;
 	sec.textContent = seconds;
+	apUi.textContent = ap;
 };
 
 const fetchWeatherDetal = async body => {
