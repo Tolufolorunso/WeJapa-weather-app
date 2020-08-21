@@ -1,10 +1,10 @@
-## Simple Server
+## Wejapa weather app
 
--- Simple server without using any framework like express, hapi etc.
+-- Weather app built without using any framework like express, hapi etc.
 -- Run this command
 
 ```
-node app.js
+node server.js
 ```
 
 to start the server.
