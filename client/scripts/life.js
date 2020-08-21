@@ -14,7 +14,7 @@ let latitudeDefault, longitudeDefault;
 
 const loadDefaultWeather = () => {
 	const defaultCity = {
-		city: 'ijero'
+		city: 'ijero-ekiti'
 	};
 
 	latitudeDefault = 7.7;
