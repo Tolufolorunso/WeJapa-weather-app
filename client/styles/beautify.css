@@ -155,23 +155,26 @@ p {
     width: 100%;
 }
 
+.form-group input:focus {
+    outline: none;
+    border: 1px solid #0eadf4;
+}
+
 .form-tag button {
     position: absolute;
-    top: 6px;
+    top: 7px;
     right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: #fff;
-    background: #314CCD;
     border: none;
+    outline: none;
+    background: transparent;
     cursor: pointer;
 }
 
-.form-group button:hover {
-    background: #314bcd80;
+.form-tag button:active,
+.form-tag button:focus,
+.form-tag button:hover {
+    outline: none;
+    border: none;
 }
 
 .row {
@@ -302,6 +305,16 @@ p {
     .map {
         max-width: 100%;
         margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .time-deg {
+        flex-direction: column;
+    }
+
+    .deg {
+        position: relative;
     }
 }
 
