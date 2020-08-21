@@ -10,10 +10,15 @@ const sec = document.getElementById('second');
 const date = document.getElementById('date');
 const alert = document.getElementById('alert');
 
+let latitudeDefault, longitudeDefault;
+
 const loadDefaultWeather = () => {
 	const defaultCity = {
 		city: 'ijero'
 	};
+
+	latitudeDefault = 7.7;
+	longitudeDefault = 5.28;
 
 	fetchWeatherDetal(defaultCity)
 		.then(data => {
@@ -53,6 +58,10 @@ const displayData = data => {
 		wind: { deg }
 	} = data;
 	const { main, icon, description } = weatherDetail;
+
+	latitudeDefault = latitude;
+	longitudeDefault = longitude;
+	map(longitudeDefault, latitudeDefault);
 
 	// console.log(
 	// 	cityName,
@@ -178,13 +187,13 @@ document.getElementById('search').addEventListener('submit', evt => {
 	city.value = '';
 });
 
-const map = () => {
+const map = (longitudeDefault, latitudeDefault) => {
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoidG9sZm9sb3J1bnNvIiwiYSI6ImNrZTFsbXk0MzAwbjgzMHA2bm82Mm9kdWIifQ.WmgYZmUX1brBeTWUbEu5qA';
 	var map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/mapbox/streets-v11',
-		center: [-74.5, 40],
+		center: [longitudeDefault, latitudeDefault],
 		zoom: 9
 	});
 	map.on('click', function (evt) {
@@ -205,4 +214,4 @@ const map = () => {
 
 loadDefaultWeather();
 setInterval(displayTime, 1000);
-map();
+map(longitudeDefault, latitudeDefault);
