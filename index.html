@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Import Google Icon Font-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Merriweather:ital,wght@0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/styles/beautify.css">
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <header class="header">
+        <div class="container">
+            <h1>WeJapa Weather App</h1>
+            <form action="" id="search" class="form-tag">
+                <div class="form-group">
+                    <input type="text" placeholder="Ijero Nigeria" id="city" autofocus>
+                </div>
+                <button type="submit">enter</button>
+            </form>
+            <div class="row">
+                <div class="city">
+                    <h3 id="city-box" class="city-box">City</h3>
+                    <div class="time-deg">
+                        <div class="time">
+                            <!-- <span id="hour"></span> : <span id="minute"></span> : <span
+                                id="second"></span> -->
+                            <div class="time-boxes">
+                                <div class="time-box" id="hour">
+                                    00
+                                </div>
+                                <div class="time-box" id="minute">
+                                    00
+                                </div>
+                                <div class="time-box" id="second">
+                                    00
+                                </div>
+                            </div>
+                            <p id="date"></p>
+                        </div>
+                        <div class="deg" id="deg"></div>
+                    </div>
+                </div>
+                <div class="condition">
+                    <div class="icon"><img src="" alt="" id="icon"></div>
+                    <h2 id="city-condition"></h2>
+                    <div class="table" id="table">
+
+                    </div>
+                </div>
+            </div>
+            <div class="map" id='map'></div>
+        </div>
+    </header>
+    <div class="alert" id="alert">
+        <p id="alert-p">successfully added</p>
+    </div>
+    <script src="/scripts/life.js" async defer></script>
+</body>
+
+</html>
