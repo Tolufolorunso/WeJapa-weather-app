@@ -25,16 +25,13 @@ const sendWeatherData = (response, data) => {
 		sunset
 	};
 
-	console.log(body);
 	serveJson(response, body, 'application/json', 200);
 };
 
 module.exports.api = (response, url) => {
-	console.log(response, url);
 	https.get(url, res => {
 		res.setEncoding('utf8');
 		const { statusCode } = res;
-		console.log(statusCode);
 		let body = '';
 		res.on('data', data => {
 			body += data;
@@ -43,6 +40,7 @@ module.exports.api = (response, url) => {
 			body = JSON.parse(body);
 			if (body.cod === '404') {
 				body.status = 'fail';
+
 				serveJson(response, body, 'application/json', 404);
 			}
 			sendWeatherData(response, body);

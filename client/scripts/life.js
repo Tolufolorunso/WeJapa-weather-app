@@ -24,7 +24,6 @@ const loadDefaultWeather = () => {
 	fetchWeatherDetal(defaultCity)
 		.then(data => {
 			displayData(data);
-			console.log(data);
 		})
 		.catch(error => showAlert('fail', error.message));
 };
@@ -51,7 +50,6 @@ const showAlert = (alertType, alertMessage) => {
 };
 
 const displayData = data => {
-	console.log(data);
 	const {
 		cityName,
 		latitude,
@@ -181,7 +179,6 @@ const fetchWeatherDetal = async body => {
 
 document.getElementById('search').addEventListener('submit', evt => {
 	let { name, value } = evt.target;
-	console.log(name, value);
 	evt.preventDefault();
 	if (city.value === '') {
 		showAlert('green', 'Enter a city name');
