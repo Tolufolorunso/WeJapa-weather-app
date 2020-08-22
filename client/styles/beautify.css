@@ -249,14 +249,14 @@ p {
 .deg {
     position: absolute;
     right: 20px;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 200;
 }
 
 .deg sup {
     font-size: 2rem;
     position: absolute;
-    right: 30px;
+    right: 25px;
     top: 5px;
 }
 

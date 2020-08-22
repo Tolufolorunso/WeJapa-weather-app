@@ -15,7 +15,7 @@ let latitudeDefault, longitudeDefault;
 
 const loadDefaultWeather = () => {
 	const defaultCity = {
-		city: 'ijero-ekiti'
+		city: 'Ijero-ekiti'
 	};
 
 	latitudeDefault = 7.7;
@@ -24,6 +24,7 @@ const loadDefaultWeather = () => {
 	fetchWeatherDetal(defaultCity)
 		.then(data => {
 			displayData(data);
+			console.log(data);
 		})
 		.catch(error => showAlert('fail', error.message));
 };
@@ -50,15 +51,20 @@ const showAlert = (alertType, alertMessage) => {
 };
 
 const displayData = data => {
+	console.log(data);
 	const {
-		name: cityName,
-		coord: { lat: latitude, lon: longitude },
-		sys: { country, sunrise, sunset },
-		weather: [weatherDetail],
-		main: { temp },
-		wind: { deg }
+		cityName,
+		latitude,
+		longitude,
+		country,
+		main,
+		description,
+		icon,
+		temp,
+		deg,
+		sunrise,
+		sunset
 	} = data;
-	const { main, icon, description } = weatherDetail;
 
 	latitudeDefault = latitude;
 	longitudeDefault = longitude;
@@ -122,7 +128,7 @@ const displayData = data => {
         </table>
 	`;
 
-	degUI.innerHTML = `${deg} <sup>0</sup>C`;
+	degUI.innerHTML = `${temp} <sup>0</sup>C`;
 	cityCondition.textContent = main;
 	cityCondition.classList.add('city-condition');
 	cityBox.textContent = cityName;
@@ -174,6 +180,8 @@ const fetchWeatherDetal = async body => {
 };
 
 document.getElementById('search').addEventListener('submit', evt => {
+	let { name, value } = evt.target;
+	console.log(name, value);
 	evt.preventDefault();
 	if (city.value === '') {
 		showAlert('green', 'Enter a city name');
